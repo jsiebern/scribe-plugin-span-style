@@ -68,7 +68,7 @@ define(function () {
                     }
                     return false;
                 });
-            }.bind(this);
+            };
 
             scribe.commands[styleName] = spanStyleCommand;
         };
