@@ -3,14 +3,14 @@ define(function () {
 
     return function (styleName) {
         return function(scribe) {
-            let spanStyleCommand = new scribe.api.SimpleCommand(styleName);
+            var spanStyleCommand = new scribe.api.SimpleCommand(styleName);
             spanStyleCommand.nodeName = 'SPAN';
 
-            let clearChildStyles = (root) => {
+            var clearChildStyles = (root) => {
                 if (typeof root === 'undefined' || typeof root.childNodes === 'undefined') return;
 
-                for (let i in root.childNodes) {
-                    let child = root.childNodes[i];
+                for (var i in root.childNodes) {
+                    var child = root.childNodes[i];
 
                     clearChildStyles(child.childNodes);
 
@@ -24,25 +24,25 @@ define(function () {
             };
 
             spanStyleCommand.execute = function(value) {
-                scribe.transactionManager.run(() => {
-                    let selection = new scribe.api.Selection();
-                    let range = selection.range;
+                scribe.transactionManager.run(function() {
+                    var selection = new scribe.api.Selection();
+                    var range = selection.range;
 
                     // Get Range Text & Current Node Text
-                    let selectedHtmlDocumentFragment = range.extractContents();
-                    let tDiv = document.createElement('div');
+                    var selectedHtmlDocumentFragment = range.extractContents();
+                    var tDiv = document.createElement('div');
                     tDiv.appendChild(selectedHtmlDocumentFragment.cloneNode(true));
-                    let rangeText = tDiv.innerText;
-                    let nodeText = selection.selection.focusNode.textContent;
+                    var rangeText = tDiv.innerText;
+                    var nodeText = selection.selection.focusNode.textContent;
 
                     // Determine if we need a new node
-                    let isNewNode = true;
+                    var isNewNode = true;
                     if (nodeText === rangeText) {
                         isNewNode = (selection.selection.focusNode.parentElement.nodeName === 'SPAN') ? false : true;
                     }
 
                     // Create / Get SPAN
-                    let span = (!isNewNode) ? selection.selection.focusNode.parentElement : document.createElement('span');
+                    var span = (!isNewNode) ? selection.selection.focusNode.parentElement : document.createElement('span');
                     span.appendChild(selectedHtmlDocumentFragment);
                     if (isNewNode) {
                         range.insertNode(span);
@@ -68,7 +68,7 @@ define(function () {
                     }
                     return false;
                 });
-            };
+            }.bind(this);
 
             scribe.commands[styleName] = spanStyleCommand;
         };
