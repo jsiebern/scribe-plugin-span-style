@@ -1,0 +1,25 @@
+{
+  "name": "scribe-plugin-span-style",
+  "version": "0.1.0",
+  "description": "A Scribe Plugin for adding inline styles through <span> elements",
+  "main": "src/scribe-plugin-span-style.js",
+  "scripts": {
+    "test": "-"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jsiebern/scribe-plugin-span-style.git"
+  },
+  "keywords": [
+    "scribe",
+    "wysiwyg",
+    "inline",
+    "styles"
+  ],
+  "author": "Jonathan Siebern",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jsiebern/scribe-plugin-span-style/issues"
+  },
+  "homepage": "https://github.com/jsiebern/scribe-plugin-span-style#readme"
+}
