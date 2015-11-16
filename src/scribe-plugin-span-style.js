@@ -1,4 +1,4 @@
-export default function(styleName) {
+module.exports = function(styleName) {
     return function(scribe) {
         let spanStyleCommand = new scribe.api.SimpleCommand(styleName);
         spanStyleCommand.nodeName = 'SPAN';
