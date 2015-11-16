@@ -6,7 +6,7 @@ define(function () {
             var spanStyleCommand = new scribe.api.SimpleCommand(styleName);
             spanStyleCommand.nodeName = 'SPAN';
 
-            var clearChildStyles = (root) => {
+            var clearChildStyles = function(root) {
                 if (typeof root === 'undefined' || typeof root.childNodes === 'undefined') return;
 
                 for (var i in root.childNodes) {
@@ -62,7 +62,7 @@ define(function () {
 
             spanStyleCommand.queryState = function() {
                 var selection = new scribe.api.Selection();
-                return !!selection.getContaining(node => {
+                return !!selection.getContaining(function(node) {
                     if (node.style) {
                         return (node.nodeName === this.nodeName && node.style[styleName] !== '');
                     }
