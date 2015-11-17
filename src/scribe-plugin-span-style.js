@@ -62,9 +62,10 @@ define(function () {
 
             spanStyleCommand.queryState = function() {
                 var selection = new scribe.api.Selection();
+                var that = this;
                 return !!selection.getContaining(function(node) {
                     if (node.style) {
-                        return (node.nodeName === this.nodeName && node.style[styleName] !== '');
+                        return (node.nodeName === that.nodeName && node.style[styleName] !== '');
                     }
                     return false;
                 });
