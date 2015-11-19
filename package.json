@@ -1,6 +1,6 @@
 {
   "name": "scribe-plugin-span-style",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "A Scribe Plugin for adding inline styles through <span> elements",
   "main": "src/scribe-plugin-span-style.js",
   "scripts": {

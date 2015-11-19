@@ -19,3 +19,7 @@ let command = scribe.getCommand('fontSize');
 command.execute('24px');
 
 ```
+
+**Known Issues / Todo**
+- Multi-Line selections do not get styled properly
+- Safari does not wrap the text into the spans correctly, scribe itself does not support Safari, so need to think about a workaround
