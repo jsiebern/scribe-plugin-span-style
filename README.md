@@ -41,6 +41,7 @@ command.execute({
 - Heavily nested `<span>` nodes sometimes do not get unwrapped properly
 - Untested performance on a lot of text ("logical" algorithm might be a bit slow for that)
 - Untested in older browsers
+- Identical text segments / nodes throughout the text can receive the new style though not selected
 
 **Changelog**
 
